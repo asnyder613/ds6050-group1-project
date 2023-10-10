@@ -109,7 +109,7 @@ if __name__ == "__main__":
     ### Generate Annotations
     #########################
 
-    annotation_dir = '/home/ybt7qf/data/caltechpedestriandataset/annotations/annotations/*'
+    annotation_dir = '/caltechpedestriandataset/annotations/annotations/*'
     classes = ['person']
     number_of_truth_boxes = 0
 
