@@ -2,20 +2,20 @@
 
 # Data
 
-# Caltech
+## Caltech
 https://data.caltech.edu/records/f6rph-90m20
 
-## Download Data
+### Download Data
 ```bash
 wget "https://data.caltech.edu/records/f6rph-90m20/files/data_and_labels.zip?download=1" -O caltechpedestriandataset.zip
 ```
 
-## Unpack data
+### Unpack data
 ```bash
 unzip caltechpedestriandataset.zip
 ```
 
-## Convert videos to images with YOLO annotation format
+### Convert videos to images with YOLO annotation format
 
 **Install requirements in base conda environment**
 ```bash
@@ -40,7 +40,7 @@ names: [
 ]
 ```
 
-## Convert to COCO label format
+### Convert to COCO label format
 
 **Install requirements in base conda environment**
 ```bash
@@ -61,8 +61,27 @@ echpedestriandataset/labels/val/ --path_to_images /home/ybt7qf/ds6050-group1-pro
 riandataset/images/val/ --name caltechpedestriandataset_val
 ```
 
-## Clean-up
+### Clean-up
 
 ```bash
 rm -rf caltechpedestriandataset
+```
+
+# Model
+
+## YOLOv8
+
+**Install requirements in base conda environment**
+**
+```bash
+pip install ultralytics
+```
+
+**Train Model**
+```python
+from ultralytics import YOLO
+
+model = YOLO("yolov8s.pt")
+model.train(data="/full/path/to/datasets/mydataset.yaml", 
+            epochs=epochs, verbose=True, batch=64)
 ```
