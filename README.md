@@ -5,17 +5,18 @@
 # Caltech
 https://data.caltech.edu/records/f6rph-90m20
 
-1) Download Data
+## Download Data
 ```bash
 wget "https://data.caltech.edu/records/f6rph-90m20/files/data_and_labels.zip?download=1" -O caltechpedestriandataset.zip
 ```
 
-2) Convert to YOLO label format
+## Convert to YOLO label format
 ```
 python caltech-preprocessing-yolo.py
 ```
 
-3) Convert to COCO label format
+## Convert to COCO label format
+
 **Train**
 ```
 python yolo-to-coco.py --path_to_annotations /home/ybt7qf/ds6050-group1-project/datasets/calt
