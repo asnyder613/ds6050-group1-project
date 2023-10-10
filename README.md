@@ -10,6 +10,11 @@ https://data.caltech.edu/records/f6rph-90m20
 wget "https://data.caltech.edu/records/f6rph-90m20/files/data_and_labels.zip?download=1" -O caltechpedestriandataset.zip
 ```
 
+## Unpack data
+```bash
+unzip caltechpedestriandataset.zip
+```
+
 ## Convert to YOLO label format
 ```bash
 python caltech-preprocessing-yolo.py
