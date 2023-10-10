@@ -15,6 +15,7 @@ wget "https://data.caltech.edu/records/f6rph-90m20/files/data_and_labels.zip?dow
 python caltech-preprocessing-yolo.py
 ```
 
+Create `/datasets/caltechpedestriandataset.yaml`
 ```yaml
 path: /datasets/caltechpedestriandataset
 train: /images/train
