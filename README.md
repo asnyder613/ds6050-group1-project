@@ -29,9 +29,9 @@ python caltech-preprocessing-yolo.py
 
 **Create `/datasets/caltechpedestriandataset.yaml`**
 ```yaml
-path: /datasets/caltechpedestriandataset
-train: /images/train
-val: /images/val
+path: /full/path/to/datasets/caltechpedestriandataset/
+train: /full/path/to/datasets/caltechpedestriandataset/images/train
+val: /full/path/to/datasets/caltechpedestriandataset/images/val
     
 nc: 1
     
