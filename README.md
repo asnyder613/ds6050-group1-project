@@ -72,7 +72,6 @@ rm -rf caltechpedestriandataset
 ## YOLOv8
 
 **Install requirements in base conda environment**
-**
 ```bash
 pip install ultralytics
 ```
