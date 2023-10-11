@@ -2,7 +2,7 @@
 
 # Data
 
-## Caltech
+## Caltech Pedestrian Dataset
 https://data.caltech.edu/records/f6rph-90m20
 
 ### Download Data
@@ -65,6 +65,29 @@ riandataset/images/val/ --name caltechpedestriandataset_val
 
 ```bash
 rm -rf caltechpedestriandataset
+```
+
+## EuroCity Persons Dataset
+https://eurocity-dataset.tudelft.nl/eval/overview/statistics
+
+### Download Data
+See https://eurocity-dataset.tudelft.nl/eval/user/login?_next=/eval/downloads/detection (requires username and password)
+
+### Unpack data
+```bash
+unzip ECP_<data>.zip
+```
+
+### Convert videos to images with YOLO annotation format
+TODO
+
+### Convert to COCO label format
+TODO
+
+### Clean-up
+
+```bash
+rm -rf ECP_<data>.zip
 ```
 
 # Model
