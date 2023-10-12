@@ -99,17 +99,24 @@ def generate_labels(split, df):
 
 if __name__ == "__main__":
 
-    os.makedirs("datasets/caltechpedestriandataset/images/train", exist_ok=True)
-    os.makedirs("datasets/caltechpedestriandataset/images/val", exist_ok=True)
-    os.makedirs("datasets/caltechpedestriandataset/labels/train", exist_ok=True)
-    os.makedirs("datasets/caltechpedestriandataset/labels/val", exist_ok=True)
-    os.makedirs("csv_files", exist_ok=True)
+    os.makedirs(os.path.join(os.path.dirname(__file__),
+                             "datasets/caltechpedestriandataset/images/train"), exist_ok=True)
+    os.makedirs(os.path.join(os.path.dirname(__file__),
+                             "datasets/caltechpedestriandataset/images/val"), exist_ok=True)
+    os.makedirs(os.path.join(os.path.dirname(__file__),
+                             "datasets/caltechpedestriandataset/labels/train"), exist_ok=True)
+    os.makedirs(os.path.join(os.path.dirname(__file__),
+                             "datasets/caltechpedestriandataset/labels/val"), exist_ok=True)
+    os.makedirs(os.path.join(os.path.dirname(__file__),
+                             "csv_files"), exist_ok=True)
 
     #########################
     ### Generate Annotations
     #########################
 
-    annotation_dir = '/caltechpedestriandataset/annotations/annotations/*'
+    annotation_dir = os.path.join(os.path.dirname(__file__),
+                                  "caltechpedestriandataset/annotations/annotations/") + "/*"
+    print(annotation_dir)
     classes = ['person']
     number_of_truth_boxes = 0
 
@@ -193,7 +200,10 @@ if __name__ == "__main__":
 
     df_set_video_train = df_set_video_train.groupby("set_id")["video_id"].count().reset_index()
     df_set_video_val = df_set_video_val.groupby("set_id")["video_id"].count().reset_index()
-    df_set_video_count = df_set_video_train.append(df_set_video_val).reset_index(drop=True)
+    try:
+        df_set_video_count = df_set_video_train.append(df_set_video_val).reset_index(drop=True)
+    except:
+        df_set_video_count = pd.concat([df_set_video_train, df_set_video_val], ignore_index=True)
     df_set_video_count = df_set_video_count.rename(columns={"video_id": "total_video"})
     # display(df_set_video_count)
 
@@ -210,11 +220,17 @@ if __name__ == "__main__":
             if(i<=5): # 10000 Train Images
                 limit = int(round((frame_total / total_train_image) * 10000, 0))
                 df_video_id = df_video_id[:limit]
-                df_train_filtered = df_train_filtered.append(df_video_id)
+                try:
+                    df_train_filtered = df_train_filtered.append(df_video_id)
+                except:
+                    df_train_filtered = pd.concat([df_train_filtered, df_video_id], ignore_index=True)
             else: # 2500 Val Images
                 limit = int(round((frame_total / total_val_image) * 2500, 0))
                 df_video_id = df_video_id[:limit]
-                df_val_filtered = df_val_filtered.append(df_video_id)
+                try:
+                    df_val_filtered = df_val_filtered.append(df_video_id)
+                except:
+                    df_val_filtered = pd.concat([df_val_filtered, df_video_id], ignore_index=True)
 
     df_train_filtered = df_train_filtered.reset_index(drop=True)
     df_val_filtered = df_val_filtered.reset_index(drop=True)

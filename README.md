@@ -12,7 +12,7 @@ wget "https://data.caltech.edu/records/f6rph-90m20/files/data_and_labels.zip?dow
 
 ### Unpack data
 ```bash
-unzip caltechpedestriandataset.zip
+unzip caltechpedestriandataset.zip -d caltechpedestriandataset
 ```
 
 ### Convert videos to images with YOLO annotation format
