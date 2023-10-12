@@ -10,4 +10,8 @@ caltechpedestriandataset:
 	unzip caltechpedestriandataset.zip -d caltechpedestriandataset
 	rm caltechpedestriandataset.zip
 
-
+.PHONY clean
+clean:
+	rm -rf caltechpedestriandataset || true
+	rm -rf csv_file || true
+	rm -rf env || true
