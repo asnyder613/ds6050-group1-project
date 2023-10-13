@@ -1,16 +1,18 @@
+import os
 import argparse
 from pylabel import importer
 
 def main():
     parser = argparse.ArgumentParser(description="Import and analyze a dataset")
-    parser.add_argument("--path_to_annotations", required=True, help="Path to annotations directory")
-    parser.add_argument("--path_to_images", required=True, help="Path to images directory")
+    parser.add_argument("--path_to_annotations", type=str, required=True, help="Path to annotations directory")
+    parser.add_argument("--path_to_images", type=str, required=True, help="Path to images directory")
     parser.add_argument("--name", required=True, help="Name of the dataset")
     
     args = parser.parse_args()
     
-    path_to_annotations = args.path_to_annotations
-    path_to_images = args.path_to_images
+    current_script_path = os.path.dirname(os.path.abspath(__file__))
+    path_to_annotations = current_script_path + args.path_to_annotations
+    path_to_images = current_script_path + args.path_to_images
     name = args.name
     
     classes = ['person']
