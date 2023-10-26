@@ -49,12 +49,11 @@ pip install pylabel
 
 **Train**
 ```bash
-python yolo-to-coco.py --path_to_annotations /datasets/caltechpedestriandataset/labels/train/ --path_to_images /home/ybt7qf/ds6050-group1-project/datasets/caltechpedestriandataset/images/train/ --name caltechpedestriandataset_train
-```
-
-**Val**
-```bash
-python yolo-to-coco.py --path_to_annotations /datasets/caltechpedestriandataset/labels/val/ --path_to_images /datasets/caltechpedestriandataset/images/val/ --name caltechpedestriandataset_val
+python yolo-to-coco.py \
+    --path_to_annotations /full/path/to/dataset/labels/ \
+    --path_to_images /full/path/to/dataset/labels/images/ \
+    --path_to_yolo_yaml /full/path/to/dataset.yaml \
+    --name caltechpedestriandataset_train
 ```
 
 ### Clean-up
