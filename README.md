@@ -47,7 +47,6 @@ names: [
 pip install pylabel
 ```
 
-**Train**
 ```bash
 python yolo-to-coco.py \
     --path_to_annotations /full/path/to/dataset/labels/ \
