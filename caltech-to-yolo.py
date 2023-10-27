@@ -246,15 +246,3 @@ if __name__ == "__main__":
 
     generate_labels("train", df_train_filtered)
     generate_labels("val", df_val_filtered)
-
-    # %%writefile /datasets/caltechpedestriandataset.yaml
-    # Create Custom Dataset Configuration
-    # path: /datasets
-    # train: /datasets/images/train
-    # val: /datasets/images/val
-        
-    # nc: 1
-        
-    # names: [
-    #     'person'
-    # ]

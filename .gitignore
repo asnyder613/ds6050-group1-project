@@ -2,6 +2,7 @@ env/
 **/*__pycache__
 **/*.ipynb_checkpoints
 caltechpedestriandataset/
+caltechpedestriandataset.zip
 csv_files/
 ECP/
 datasets/
