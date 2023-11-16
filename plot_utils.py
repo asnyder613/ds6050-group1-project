@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import torchvision.transforms as T
 
 from pathlib import Path, PurePath
 
@@ -62,3 +63,4 @@ def plot_logs(logs, fields=('class_error', 'loss_bbox_unscaled', 'mAP'), ewm_col
             labels.extend([f'{Path(p).name} - {tt}' for p in logs for tt in ['train', 'test']])
         ax.legend(labels)
         ax.set_title(field)
+        
