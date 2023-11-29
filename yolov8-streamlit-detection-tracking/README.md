@@ -2,7 +2,7 @@
 
 ## Acknowledgements
 
-This app is based on the (yolov8-streamlit-detection-tracking)[https://github.com/CodingMantras/yolov8-streamlit-detection-tracking.git]
+This app is based on the [yolov8-streamlit-detection-tracking]([https://github.com/CodingMantras/yolov8-streamlit-detection-tracking.git)
 
 ### Disclaimer
 
