@@ -3,9 +3,10 @@ import time
 import streamlit as st
 import cv2
 from pytube import YouTube
+import pandas as pd
+import os
 
 import settings
-
 
 def load_model(model_path):
     """
@@ -56,6 +57,10 @@ def _display_detected_frames(conf, model, st_frame, image, is_display_tracking=N
         res = model.predict(image, conf=conf)
 
     # # Plot the detected objects on the video frame
+    metrics = dict(res[0].speed)
+    metrics_df = pd.DataFrame(metrics, index=[0])
+    settings.METRICS_DF = pd.concat([settings.METRICS_DF, metrics_df])
+
     res_plotted = res[0].plot()
     st_frame.image(res_plotted,
                    caption='Detected Video',
@@ -102,6 +107,7 @@ def play_youtube_video(conf, model):
                 else:
                     vid_cap.release()
                     break
+                
         except Exception as e:
             st.sidebar.error("Error loading video: " + str(e))
 
@@ -185,7 +191,7 @@ def play_webcam(conf, model):
             st.sidebar.error("Error loading video: " + str(e))
 
 
-def play_stored_video(conf, model):
+def play_stored_video(conf, model, model_type):
     """
     Plays a stored video file. Tracks and detects objects in real-time using the YOLOv8 object detection model.
 
@@ -227,5 +233,7 @@ def play_stored_video(conf, model):
                 else:
                     vid_cap.release()
                     break
+            settings.METRICS_DF.to_csv(os.path.join(os.path.dirname(__file__), f'metrics-{model_type}-{source_vid}.csv'))
+
         except Exception as e:
             st.sidebar.error("Error loading video: " + str(e))

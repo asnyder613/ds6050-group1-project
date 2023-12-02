@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+import pandas as pd
 
 # Get the absolute path of the current file
 file_path = Path(__file__).resolve()
@@ -45,3 +46,6 @@ CALTECH_MODEL = MODEL_DIR / 'caltech_best.pt'
 
 # Webcam
 WEBCAM_PATH = 0
+
+# Metrics
+METRICS_DF = pd.DataFrame(columns=['preprocess', 'inference', 'postprocess'])

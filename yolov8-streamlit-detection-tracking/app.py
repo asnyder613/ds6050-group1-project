@@ -99,7 +99,7 @@ if source_radio == settings.IMAGE:
                     st.write("No image is uploaded yet!")
 
 elif source_radio == settings.VIDEO:
-    helper.play_stored_video(confidence, model)
+    helper.play_stored_video(confidence, model, model_type)
 
 elif source_radio == settings.WEBCAM:
     helper.play_webcam(confidence, model)
