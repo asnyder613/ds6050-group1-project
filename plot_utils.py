@@ -7,7 +7,7 @@ import torchvision.transforms as T
 
 from pathlib import Path, PurePath
 
-def plot_logs_2(logs, fields=('class_error', 'loss_bbox_unscaled', 'mAP'), ewm_col=0, log_name='log.txt'):
+def plot_logs_2(logs, output_name, fields=('class_error', 'loss_bbox_unscaled', 'mAP'), ewm_col=0, log_name='log.txt'):
     
     func_name = "plot_utils.py::plot_logs"
 
@@ -64,3 +64,4 @@ def plot_logs_2(logs, fields=('class_error', 'loss_bbox_unscaled', 'mAP'), ewm_c
         ax.legend(labels)
         ax.set_title(field)
         
+    plt.savefig(output_name)
